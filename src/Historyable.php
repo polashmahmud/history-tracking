@@ -4,7 +4,6 @@ namespace Polashmahmud\History;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
-use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use Polashmahmud\History\Models\History;
 

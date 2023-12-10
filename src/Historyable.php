@@ -4,6 +4,7 @@ namespace Polashmahmud\History;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
+use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use Polashmahmud\History\Models\History;
 
@@ -22,16 +23,19 @@ trait Historyable
         });
     }
 
+    /**
+     * @param ColumnChange $change
+     * @return void
+     */
     protected function saveChange(ColumnChange $change)
     {
         $this->history()->create([
             'changed_column' => $change->column,
             'changed_value_form' => $change->from,
             'changed_value_to' => $change->to,
-            'changed_by' => auth()->id(),
+            'changed_by' => auth()->id() ?? null,
             'ip_address' => request()->ip(),
         ]);
-
     }
 
     /**
@@ -59,11 +63,16 @@ trait Historyable
             ->latest();
     }
 
+    /**
+     * @return string[]
+     */
     public function ignoreHistoryColumns()
     {
         return [
             'updated_at',
-            'password'
+            'password',
+            'remember_token',
+            'email_verified_at'
         ];
 
     }

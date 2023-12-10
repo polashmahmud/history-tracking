@@ -14,7 +14,8 @@ class History extends Model
         'changed_column',
         'changed_value_form',
         'changed_value_to',
-        'ip_address'
+        'ip_address',
+        'changed_by'
     ];
 
     public function changedBy()

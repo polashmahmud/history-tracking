@@ -30,7 +30,7 @@ trait Historyable
     {
         $this->history()->create([
             'changed_column' => $change->column,
-            'changed_value_form' => $change->from,
+            'changed_value_from' => $change->from,
             'changed_value_to' => $change->to,
             'changed_by' => auth()->id() ?? null,
             'ip_address' => request()->ip(),

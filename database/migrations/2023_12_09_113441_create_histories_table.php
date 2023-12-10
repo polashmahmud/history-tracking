@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->morphs('historyable');
             $table->string('changed_column');
-            $table->text('changed_value_form')->nullable();
+            $table->text('changed_value_from')->nullable();
             $table->text('changed_value_to')->nullable();
             $table->unsignedBigInteger('changed_by')->nullable();
             $table->foreign('changed_by')->references('id')->on('users')->onDelete('cascade');

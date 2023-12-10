@@ -1,0 +1,19 @@
+{
+    "name": "polashmahmud/history",
+    "description": "A simple laravel history package",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Polashmahmud\\History\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Polash Mahmud",
+            "email": "polashmahmud@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}

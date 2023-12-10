@@ -21,5 +21,12 @@
     },
     "suggest": {
         "illuminate/database": "The Illuminate Database package (^6.0|^7.0|^8.0|^9.0|^10.0)."
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Polashmahmud\\History\\HistoryTrackingServiceProvider"
+            ]
+        }
     }
 }

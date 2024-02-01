@@ -16,6 +16,13 @@ To install History Tracking System, simply run:
 composer require polashmahmud/history
 ```
 
+Laravel uses Package Auto-Discovery, so doesn't require you to manually add the ServiceProvider.
+If you don't use auto-discovery, add the ServiceProvider to the providers array in config/app.php
+
+```php
+Polashmahmud\History\HistoryTrackingServiceProvider::class,
+```
+
 Then, migrate your database:
 
 ```bash

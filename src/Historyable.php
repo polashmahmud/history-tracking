@@ -43,14 +43,22 @@ trait Historyable
      */
     protected function getChangedColumns(Model $model)
     {
-        return collect(
-            array_diff(
-                Arr::except($model->getChanges(), $this->ignoreHistoryColumns()),
-                $orginal = $model->getOriginal()
-            )
-        )->map(function ($change, $column) use ($orginal) {
-            return new ColumnChange($column, $orginal[$column], $change);
+        $original = $model->getOriginal();
+        $changes = $model->getChanges();
+        $except = Arr::except($changes, $this->ignoreHistoryColumns());
+
+        return collect($except)->map(function ($change, $column) use ($original) {
+            return new ColumnChange($column, $original[$column], $change);
         });
+
+//        return collect(
+//            array_diff(
+//                Arr::except($model->getChanges(), $this->ignoreHistoryColumns()),
+//                $original = $model->getOriginal()
+//            )
+//        )->map(function ($change, $column) use ($original) {
+//            return new ColumnChange($column, $original[$column], $change);
+//        });
     }
 
     /**
